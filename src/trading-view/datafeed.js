@@ -7,9 +7,9 @@ const configurationData = {
   supported_resolutions: ["1D", "1W", "1M"],
   exchanges: [
     {
-      value: "Bitfinex",
-      name: "Bitfinex",
-      desc: "Bitfinex",
+      value: "Coinbase",
+      name: "Coinbase",
+      desc: "Coinbase",
     },
     {
       // `exchange` argument for the `searchSymbols` method, if a user selects this exchange
@@ -36,9 +36,11 @@ const configurationData = {
 async function getAllSymbols() {
   const data = await makeApiRequest("data/v3/all/exchanges");
   let allSymbols = [];
+  console.log(data, 'data');
 
   for (const exchange of configurationData.exchanges) {
     const pairs = data.Data[exchange.value].pairs;
+
 
     for (const leftPairPart of Object.keys(pairs)) {
       const symbols = pairs[leftPairPart].map((rightPairPart) => {

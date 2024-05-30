@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Datafeed from "../trading-view/datafeed";
+// import Datafeed from "./api/index";
 import TradingView from "../charting_library/charting_library.standalone";
 
 const TradingViewChart = () => {
@@ -10,7 +11,8 @@ const TradingViewChart = () => {
     document.head.appendChild(script);
 
     window.tvWidget = new TradingView.widget({
-      symbol: "Bitfinex:BTC/USD", // default symbol
+      symbol: "Coinbase:BTC/USD", // default symbol
+      // symbol: "Bitfinex:BTC/USD", // default symbol
       interval: "1D", // default interval
       fullscreen: true, // displays the chart in the fullscreen mode
       container: "tv_chart_container",
